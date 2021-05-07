@@ -68,6 +68,9 @@ Customer.clearCart = async(cust_id) => {
 }
 
 Customer.buy = async(cust_id) => {
-    let 
+    return;
+    // let result = await psql.query(
+    //     `WITH;`
+    // );
 }
 module.exports = Customer;

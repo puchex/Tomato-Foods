@@ -36,7 +36,7 @@ exports.clearCart = async (req,res) => {
 exports.buy = async (req,res) => {
     try{
         await Customer.buy(req.user.user_id);
-        res.redirect('/orders');
+        res.redirect('/dishes');
     }
     catch(err){
 
