@@ -35,6 +35,12 @@ Manager.login = async (value) => {
 
 Manager.addDish = async (data) => {
     const insert = await psql.query('INSERT into dishes(availability,name,dish_type,info,price,image,rest_id) values ($1,$2,$3,$4,$5,$6,$7) RETURNING dish_id;',data);
+    if(insert.rows){
+        return insert.rows[0]['dish_id'];
+    }
+    else{
+        return 0;
+    }
 }
 
 

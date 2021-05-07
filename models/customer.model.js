@@ -37,4 +37,30 @@ Customer.login = async (value) => {
     }
 };
 
+Customer.addToCart = async(dish_id,cust_id) => {
+    // await psql.query('DELETE FROM cart WHERE NOT dish_id = $1 ;',[dish_id])
+    let result = await psql.query('SELECT * FROM cart WHERE dish_id = $1 AND cust_id = $2;',[dish_id,cust_id]);
+    if(result.rows.length){
+        let update = await psql.query('UPDATE cart SET quantity = quantity + 1 WHERE dish_id = $1 AND cust_id = $2;',[dish_id,cust_id]);
+    }
+    else{
+        let insert = await psql.query('INSERT INTO cart values ($2,$1,1);',[dish_id,cust_id]);
+    }
+    return ;
+}
+
+Customer.showCart = async(cust_id) => {
+    let result = await psql.query('SELECT * FROM cart,dishes WHERE cart.cust_id = $1 AND dishes.dish_id = cart.dish_id;',[cust_id]);
+    if(result.rows.length){
+        return result.rows;
+    }
+    else{
+        return [];
+    }
+}
+
+Customer.clearCart = async(cust_id) => {
+    let result = await psql.query('DELETE FROM CART WHERE cust_id = $1;',[cust_id]);
+    return ;
+}
 module.exports = Customer;

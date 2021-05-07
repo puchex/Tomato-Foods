@@ -89,10 +89,10 @@ exports.login = async (req,res) => {
             }
 
             const token = jwt.sign({user_id:customer.cust_id,user_type:1},config.TOKEN_SECRET);
-            // res.cookie("jwt",token,{secure: true, httpOnly: true});
-            res['token'] = token;
-            res.status(200).header('auth-token',token).redirect('/dishes');
-            // res.redirect('/dishes')
+            res.cookie("jwt",token,{secure: true, httpOnly: true});
+            // res.send({token : token});
+                res.set('x-auth',token);
+             res.redirect('/dishes')
             // res.header("auth-token",token).send("Welcome back, "+customer.name);
         }
         else{
@@ -114,8 +114,9 @@ exports.login = async (req,res) => {
             }
 
             const token = jwt.sign({user_id:manager.rest_id,user_type:3},config.TOKEN_SECRET);
-            // res.cookie("jwt",token,{secure: true, httpOnly: true});
-            res.status(200).header("auth-token",token).redirect('/manager');
+            res.cookie("jwt",token,{secure: true, httpOnly: true});
+            res.set("auth-token",token);
+            res.redirect('/manager');
             // res.redirect('/dishes')
             // res.header("auth-token",token).send("Welcome back, "+customer.name);
         }

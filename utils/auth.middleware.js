@@ -29,14 +29,14 @@ exports.loggedIn = function (req,res,next){
 }
 
 exports.isManager = (req,res,next) => {
-    if(req.user.user_type === '3'){
+    if(req.user.user_type === 3){
          return next();
     }
      res.render('error',{message : "Access only to REstaurant Managers"+req.user.user_type});
 }
 
 exports.isCustomer = (req,res,next) => {
-    if(req.user.user_type === '1'){
+    if(req.user.user_type === 1){
         return next();
     }
      res.render('error',{message:"You are not a customer"});

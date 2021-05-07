@@ -1,9 +1,10 @@
-<link rel="stylesheet" href="/css/forms.css">
-<link rel="stylesheet" href="/css/product.css">
+<head>
+<link rel="stylesheet" href="./public/css/forms.css">
+<link rel="stylesheet" href="./public/css/product.css">
 </head>
 
 <body>
-
+<%- include('./includes/navigation.ejs') %>
 <main>
         <h>Available Dishes...</h>
     <div class="grid">
@@ -23,7 +24,7 @@
         <%=data.price %>
     </h3>
     <h3 class="product__description">
-        Restaurant : <a href="restaurants/"+ <%=data.rest_name%>> <%=data.rest_name%> </a> <br>
+        Restaurant : <a href= '/dishes/<%=data.rest_name%>' > <%=data.rest_name%> </a> <br>
         Info :  <%=data.info%>
          <br>
         Availability:
@@ -34,7 +35,7 @@
 
     <form action="/cart" method="post">
 <button class="btn" type="submit">Add to Cart</button>
-<input type="hidden" name="product_id" value=<%=data.id%>>
+<input type="hidden" name="dish_id" value=<%=data.dish_id%>>
     </form>
     </div>
     </article>

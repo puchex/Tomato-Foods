@@ -6,12 +6,14 @@ exports.addDish = async (req,res) => {
     try{
         data = [req.body.availability,req.body.name,req.body.dish_type,req.body.info,req.body.price,req.body.image,req.user.user_id];
 
-        const dish_id = Manager.addDish(data);
+        const dish_id = await Manager.addDish(data);
+        res.render('manager_dashboard');
     }
     catch(err){
         console.log(err);
     }
 }
+
 
 exports.dashboard = async (req,res) =>{
     res.render('manager_dashboard');
