@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+
+<main>
+        <h>Available Dishes...</h>
+    <div class="grid">
+
+    <% dishList.forEach(function(data){ %>
+<article class="card product-item">
+<header class="card__header">
+    <h1 class="product__title">
+        <%=data.name %>
+    </h1>
+</header>
+<div class="card__image">
+    <img src= <%=data.image%>   alt=<%=data.name%> >
+</div>
+<div class="card__content">
+    <h3 class="product__price">Price:
+        <%=data.price %>
+    </h3>
+    <h3 class="product__description">
+        Restaurant : <a href="restaurants/"+ <%=data.rest_name%>> <%=data.rest_name%> </a> <br>
+        Info :  <%=data.info%>
+         <br>
+        Availability:
+        <%=data.availability%>
+    </h3>
+</div>
+<div class="card__actions">
+
+    <form action="/cart" method="post">
+<button class="btn" type="submit">Add to Cart</button>
+<input type="hidden" name="product_id" value=<%=data.id%>>
+    </form>
+    </div>
+    </article>
+<% }) %>
+</div>
+
+    
+</main>

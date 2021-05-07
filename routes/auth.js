@@ -3,10 +3,10 @@ var router = express.Router();
 
 // router registration and login for customer.
 
-var customerController = require('../controllers/customer.controller.js')
-router.post('/register-customer',customerController.register);
+var userController = require('../controllers/user.controller.js')
+router.post('/register-customer',userController.register);
 
-router.post('/login-customer',customerController.login);
+router.post('/login-customer',userController.login);
 
 
 

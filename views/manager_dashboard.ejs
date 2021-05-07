@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dash Board</title>
+    <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href='/css/forms.css'/>
+  </head>
+<body>
+
+<h style="font-size: large;">Add a dish</h>
+<form id = "add-dish-form" class="product-form" action="manager/addDish" method="POST">
+    <div class="form-control">
+      <label for="dish-name">Dish Name</label>
+      <input type="text" name="name" id="name" required >
+  </div>
+    <div class="form-control">
+        <label for="dish_type">Dish_type</label>
+        <input type="text" name="dish_type" id="dish_type" required >
+    </div>
+    <div class="form-control">
+        <label for="info">info</label>
+        <input type="text" name="info" id="info"  required >
+    </div>
+    <div class="form-control">
+      <label for="price">price</label>
+      <input type="price" name="price" id="price" required >
+    </div>
+    <div class="form-control">
+      <label for="image">Image URL</label>
+      <input type="url" name="image" id="image" >
+    </div>
+    <br>
+    <button class="btn" type="submit">Add Dish</button>
+</form>
+</body>

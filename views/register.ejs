@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Tomato Foods</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href='/stylesheets/forms.css'/>
+    <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href='/css/forms.css'/>
   </head>
   <body>
     <h1>Tomato Foods</h1>
@@ -15,7 +15,7 @@
         <input type="text" name="name" id="name" required >
     </div>
       <div class="form-control">
-          <label for="email">username/email</label>
+          <label for="email">email</label>
           <input type="email" name="email" id="email" required >
       </div>
       <div class="form-control">
@@ -30,6 +30,11 @@
         <label for="phone">phone</label>
         <input type="phone" name="phone" id="phone" >
       </div>
+      <label for="user_type">Register as</label> <br>Customer 
+            <input type ="radio" name="user_type" value=1>Delivery Person
+            <input type ="radio" name="user_type" value=2>Restaurant Manager
+            <input type ="radio" name="user_type" value=3><br>
+        
       <button class="btn" type="submit">Register</button>
   </form>
   </body>

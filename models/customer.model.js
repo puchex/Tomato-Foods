@@ -33,8 +33,7 @@ Customer.login = async (value) => {
         return row[0];
     }
     else{
-         
-        throw new NotFoundError("User doesnt exist");
+         return [];
     }
 };
 

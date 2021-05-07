@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Tomato Foods</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href='/stylesheets/forms.css'/>
+    <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href='/css/forms.css'/>
   </head>
   <body>
     <h1>Tomato Foods</h1>
@@ -11,15 +11,18 @@
      
     <form id = "login-form" class="product-form" action="api/login-customer" method="POST">
         <div class="form-control">
-            <label for="email">username/email</label>
+            <label for="email">email</label>
             <input type="email" name="email" id="email" required >
         </div>
         <div class="form-control">
             <label for="passwd">password</label>
             <input type="password" name="passwd" id="passwd" required>
         </div>
+            <label for="user_type">Login as</label> <br>Customer 
+            <input type ="radio" name="user_type" value=1>Delivery Person
+            <input type ="radio" name="user_type" value=2>Restaurant Manager
+            <input type ="radio" name="user_type" value=3><br>
         <button class="btn" type="submit">Submit</button>
-        <button class="btn" type="button">Login as</button>
         <br>
       </form>
       <a href="/register"> New User?

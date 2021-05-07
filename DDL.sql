@@ -17,7 +17,8 @@ CREATE TABLE restaurants (
 	name		TEXT,
 	info		TEXT,
 	email		TEXT,
-	passwd		TEXT
+	passwd		TEXT,
+	phone		TEXT
 );
 
 CREATE TABLE dishes (
@@ -26,14 +27,17 @@ CREATE TABLE dishes (
 	name		TEXT,
 	dish_type		TEXT,
 	info		TEXT,
-	price		FLOAT	
+	price		FLOAT,
+	image		TEXT,
+	rest_id		INT REFERENCES restaurants(rest_id) ON DELETE  CASCADE
 );
 
 CREATE TABLE delivery_guys (
 	del_id	SERIAL PRIMARY KEY,
 	name 	TEXT,
 	email	TEXT,
-	passwd	TEXT
+	passwd	TEXT,
+	phone 	TEXT
 );
 
 CREATE TABLE orders (
@@ -51,10 +55,10 @@ CREATE TABLE order_dishes(
 	quantity 	INT
 );
 
-CREATE TABLE menu(
-	dish_id		INT REFERENCES dishes(dish_id),
-	rest_id		INT	REFERENCES restaurants(rest_id)
-);
+-- CREATE TABLE menu(
+-- 	dish_id		INT REFERENCES dishes(dish_id),
+-- 	rest_id		INT	REFERENCES restaurants(rest_id)
+-- );
 
 CREATE TABLE order_ratings(
 	order_id		INT REFERENCES orders(order_id),
