@@ -14,5 +14,6 @@ router.get('/register',function(req,res,next){
 router.post('/cart', middleware.loggedIn,middleware.isCustomer,customerController.addToCart);
 router.get('/cart',middleware.loggedIn,middleware.isCustomer,customerController.showCart);
 router.post('/cart/clear',middleware.loggedIn,middleware.isCustomer,customerController.clearCart);
+router.post('/buy', middleware.loggedIn,middleware.isCustomer,customerController.buy);
 
 module.exports = router;

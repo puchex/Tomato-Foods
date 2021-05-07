@@ -33,3 +33,12 @@ exports.clearCart = async (req,res) => {
         res.send("Some error");
     }
 }
+exports.buy = async (req,res) => {
+    try{
+        await Customer.buy(req.user.user_id);
+        res.redirect('/orders');
+    }
+    catch(err){
+
+    }
+}
